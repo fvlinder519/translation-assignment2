@@ -1,4 +1,4 @@
-const Orders = () => {
-  return <h1>Orders</h1>;
+const Translation = () => {
+  return <h1>Translation</h1>;
 };
-export default Orders;
+export default Translation;
