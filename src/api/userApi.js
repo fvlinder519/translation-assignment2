@@ -27,7 +27,7 @@ const createUser = async (username) => {
     });
 
     if (!response.ok) {
-      throw new Error("Could notcreate user: " + username);
+      throw new Error("Could not create user: " + username);
     }
     const data = await response.JSON();
     return [null, data];

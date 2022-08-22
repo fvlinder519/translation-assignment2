@@ -1,5 +1,7 @@
 import TranslationForm from "../components/Translations/TranslationForm";
 import withAuth from "../hoc/withAuth";
+const TRANSLATIONSIGNS = [{}];
+
 const Translation = () => {
   return (
     <>
