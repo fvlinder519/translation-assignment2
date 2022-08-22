@@ -18,6 +18,7 @@ const Profile = () => {
     <>
       <h1>Profile</h1>
       <ProfileActions logout={logout} />
+
       {user.translation !== undefined && (
         <ProfileTranslationHistory translations={user.translations} />
       )}

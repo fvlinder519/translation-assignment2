@@ -72,7 +72,9 @@ const Navbar = () => {
             {user !== null && (
               <>
                 <IconButton sx={{ alignContent: borderRight, marginLeft: 40 }}>
-                  {user !== null && <div>{user.username}</div>}
+                  {user !== null && (
+                    <Typography sx={{ margin: 3 }}>{user.username}</Typography>
+                  )}
 
                   <NavLink to="/profile">
                     <Avatar
