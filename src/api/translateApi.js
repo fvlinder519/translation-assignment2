@@ -1,18 +1,24 @@
 import { createHeaders } from "./indexApi";
 const apiUrl = process.env.REACT_APP_API_URL;
 
-export const postTranslation = async (text) => {
+export const addTranslation = async (user, translation) => {
   try {
-    const response = await fetch(apiUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(text),
+    const response = await fetch(`${apiUrl}/${user.id}`, {
+      method: "PATCH", //updating a record
+      headers: createHeaders(),
+      body: JSON.stringify({
+        username: user.username,
+        translations: [...user.translations, translation],
+      }),
     });
-    return response.json;
+
+    if (!response.ok) {
+      throw new Error("Could not add translation to user");
+    }
+    const result = await response.json();
+    return [null, result];
   } catch (error) {
-    console.log(error);
+    return [error.message, null];
   }
 };
 
@@ -36,7 +42,7 @@ export const getTranslationWithId = async (id, limit = 0) => {
     console.log(error);
   }
 };
-export const deleteTranslation = async (id) => {
+export const translationHistoryDelete = async (id) => {
   try {
     const response = await fetch(apiUrl + "/" + id, {
       method: "DELETE",

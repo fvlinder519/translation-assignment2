@@ -7,6 +7,7 @@ import Box from "@mui/material/Box";
 import { useForm } from "react-hook-form";
 import { useUser } from "../../context/UserContext";
 import { useState } from "react";
+import { addTranslation } from "../../api/translateApi";
 const commonStyles = {
   bgcolor: "background.paper",
   borderColor: "text.primary",
@@ -22,17 +23,23 @@ const TranslationForm = ({ onTranslate }) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const [translationText, setTranslaionText] = useState("");
 
   const { user } = useUser();
 
-  const onSubmit = ({ translateText }) => {
+  const onSubmit = async ({ translateText }) => {
     console.log(translateText);
+
     if (!translateText) {
       alert("Write a text first");
     } else {
       onTranslate(translateText);
     }
+
+    const [error, result] = await addTranslation(user, translateText);
+    console.log(error);
+    console.log(result);
     setTranslaionText(translateText);
   };
 
@@ -55,7 +62,7 @@ const TranslationForm = ({ onTranslate }) => {
 
       <Box sx={{ display: "flex", justifyContent: "center" }}>
         <Box sx={{ ...commonStyles, borderRadius: 1 }}> {translationText}</Box>
-        //change to emoji afterwards
+        {/* //change to emoji afterwards */}
       </Box>
     </form>
   );

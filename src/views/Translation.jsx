@@ -1,10 +1,15 @@
+import { addTranslation } from "../api/translateApi";
 import TranslationForm from "../components/Translations/TranslationForm";
+import { useUser } from "../context/UserContext";
 import withAuth from "../hoc/withAuth";
-const TRANSLATIONSIGNS = [{}];
 
 const Translation = () => {
-  const handleTranslateClicked = (translateText) => {
+  const { user } = useUser();
+  const handleTranslateClicked = async (translateText) => {
     console.log(translateText);
+    const [error, result] = await addTranslation(user, translateText);
+    console.log(error);
+    console.log(result);
   };
   return (
     <>
