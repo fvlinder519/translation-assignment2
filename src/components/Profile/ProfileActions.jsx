@@ -4,6 +4,9 @@ import Navbar from "../Navbar/Navbar";
 
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
+import ProfileTranslationHistory from "./ProfileTranslationHistory";
+
+import { useUser } from "../../context/UserContext";
 
 const commonStyles = {
   bgcolor: "background.paper",
@@ -15,17 +18,19 @@ const commonStyles = {
 };
 
 const ProfileActions = ({ logout }) => {
+  const { user } = useUser();
   const handleLogoutClick = () => {
     //Send event to parent (child should not handle events)
     logout();
   };
+
   return (
     <ul>
       <div>
         <Link to="/translations">Translations</Link>
       </div>
-
-      <div>
+      <ProfileTranslationHistory translations={user.translations} />
+      {/* <div>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
           <Box sx={{ ...commonStyles, borderRadius: 1 }} />
         </Box>
@@ -33,7 +38,7 @@ const ProfileActions = ({ logout }) => {
 
       <div>
         <Button variant="contained">Clear History</Button>
-      </div>
+      </div> */}
     </ul>
   );
 };

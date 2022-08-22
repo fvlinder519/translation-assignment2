@@ -5,11 +5,8 @@ import withAuth from "../hoc/withAuth";
 
 const Translation = () => {
   const { user } = useUser();
-  const handleTranslateClicked = async (translateText) => {
+  const handleTranslateClicked = (translateText) => {
     console.log(translateText);
-    const [error, result] = await addTranslation(user, translateText);
-    console.log(error);
-    console.log(result);
   };
   return (
     <>
