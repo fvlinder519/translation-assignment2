@@ -28,6 +28,7 @@ const LoginForm = () => {
 
   //Side effects
   useEffect(() => {
+    //redirect should not be a childs job, We should move this up to Login.jsx
     //redirect to Profile
     if (user !== null) {
       navigate("translation"); // home here
