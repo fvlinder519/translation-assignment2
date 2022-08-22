@@ -72,11 +72,12 @@ const Navbar = () => {
             {user !== null && (
               <>
                 <IconButton sx={{ alignContent: borderRight, marginLeft: 40 }}>
-                  {user !== null && (
-                    <Typography sx={{ margin: 1 }}>{user.username}</Typography>
-                  )}
-
                   <NavLink to="/profile">
+                    {user !== null && (
+                      <Typography sx={{ margin: 1 }}>
+                        {user.username}
+                      </Typography>
+                    )}
                     <Avatar
                       sx={{ bgcolor: randomColor(), flexGrow: 1 }}
                     ></Avatar>

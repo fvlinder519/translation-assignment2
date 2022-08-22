@@ -30,15 +30,9 @@ const ProfileActions = ({ logout }) => {
         <Link to="/translations">Translations</Link>
       </div>
       <ProfileTranslationHistory translations={user.translations} />
-      {/* <div>
-        <Box sx={{ display: "flex", justifyContent: "center" }}>
-          <Box sx={{ ...commonStyles, borderRadius: 1 }} />
-        </Box>
-      </div>
-
       <div>
         <Button variant="contained">Clear History</Button>
-      </div> */}
+      </div>
     </ul>
   );
 };
