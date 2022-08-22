@@ -4,20 +4,33 @@ import Login from "./views/Login";
 import Translation from "./views/Translation";
 import Profile from "./views/Profile";
 import Navbar from "./components/Navbar/Navbar";
+import Box from "@mui/material/Box";
+
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+
+const darkTheme = createTheme({
+  palette: {
+    light: "#b5838d",
+  },
+});
 
 function App() {
   console.log(process.env.REACT_APP_API_KEY);
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/translation" element={<Translation />} />
-          <Route path="/profile" element={<Profile />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <BrowserRouter>
+        <div className="App">
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/translation" element={<Translation />} />
+            <Route path="/profile" element={<Profile />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
