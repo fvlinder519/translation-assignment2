@@ -4,15 +4,15 @@ import Button from "@mui/material/Button";
 const ProfileActions = () => {
   return (
     <ul>
-      <li>
+      <div>
         <Link to="/translations">Orders</Link>
-      </li>
-      <li>
+      </div>
+      <div>
         <Button variant="contained">Clear History</Button>
-      </li>
-      <li>
+      </div>
+      <div>
         <Button variant="contained">Log Out</Button>
-      </li>
+      </div>
     </ul>
   );
 };

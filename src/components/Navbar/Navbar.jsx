@@ -6,16 +6,16 @@ const Navbar = () => {
   return (
     <nav>
       <ul>
-        <li>Translations</li>
+        <div>Translations</div>
       </ul>
       {user !== null && (
         <ul>
-          <li>
+          <div>
             <NavLink to="/translation">Translation</NavLink>
-          </li>
-          <li>
+          </div>
+          <div>
             <NavLink to="/profile">Profile</NavLink>
-          </li>
+          </div>
         </ul>
       )}
     </nav>

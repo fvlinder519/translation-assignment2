@@ -1,8 +1,8 @@
 const ProfileTranslationHistoryItem = ({ translation }) => {
   return (
-    <li>
+    <ul>
       <div>{translation}</div>
-    </li>
+    </ul>
   );
 };
 export default ProfileTranslationHistoryItem;
