@@ -69,18 +69,22 @@ const Navbar = () => {
               </IconButton>
             </NavLink>
 
-            <IconButton sx={{ alignContent: borderRight, marginLeft: 40 }}>
-              {user !== null && <div>{user.username}</div>}
-
-              <NavLink to="/profile">
-                <Avatar sx={{ bgcolor: randomColor(), flexGrow: 1 }}></Avatar>
-              </NavLink>
-            </IconButton>
             {user !== null && (
-              <Button variant="contained" onClick={handleLogoutClick}>
-                <Link to="/"> </Link>
-                Log Out
-              </Button>
+              <>
+                <IconButton sx={{ alignContent: borderRight, marginLeft: 40 }}>
+                  {user !== null && <div>{user.username}</div>}
+
+                  <NavLink to="/profile">
+                    <Avatar
+                      sx={{ bgcolor: randomColor(), flexGrow: 1 }}
+                    ></Avatar>
+                  </NavLink>
+                </IconButton>
+                <Button variant="contained" onClick={handleLogoutClick}>
+                  <Link to="/"> </Link>
+                  Log Out
+                </Button>
+              </>
             )}
           </Toolbar>
         </AppBar>
