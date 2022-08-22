@@ -26,8 +26,7 @@ const LoginForm = () => {
 
   //Side effects
   useEffect(() => {
-    if (user) {
-      //redirect to Profile
+    redirect to Profile
     }
   }, []); //empty deps, only run once
 
