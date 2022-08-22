@@ -1,6 +1,9 @@
 import { createContext, useContext, useState } from "react";
 import { STORAGE_KEY_USER } from "../const/storageKeys";
 import { storageRead } from "../utils/storage";
+//Context - User
+//ContextProvider - PRovide to components
+//      -value: State
 
 //Context -> exposing context
 const UserContext = createContext();
