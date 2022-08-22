@@ -3,11 +3,12 @@ import LoginIcon from "@mui/icons-material/Login";
 import TextField from "@mui/material/TextField";
 import { IconButton } from "@mui/material";
 import Button from "@mui/material/Button";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { loginUser } from "../../api/userApi";
 import { useState, useEffect } from "react";
 import { storageSave } from "../../utils/storage";
-
+import { useUser } from "../../context/UserContext";
+import { STORAGE_KEY_USER } from "../../const/storageKeys";
 const usernameConfig = {
   required: true,
   minLength: 2,
@@ -19,26 +20,31 @@ const LoginForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
+  const { user, setUser } = useUser();
+  const navigate = useNavigate();
   //Local state
   const [loading, setLoading] = useState(false);
   const [apiError, setApiError] = useState(null);
 
   //Side effects
   useEffect(() => {
-    redirect to Profile
+    //redirect to Profile
+    if (user !== null) {
+      navigate("translation"); // home here
     }
-  }, []); //empty deps, only run once
+  }, [user, navigate]); //empty deps, only run once
 
   //Event handelra
   const onSubmit = async ({ username }) => {
     setLoading(true);
-    const [error, user] = await loginUser(username);
+    const [error, userResponse] = await loginUser(username);
+
     if (error !== null) {
       setApiError(error);
     }
-    if (user !== null) {
-      storageSave("translations-user", user);
+    if (userResponse !== null) {
+      storageSave(STORAGE_KEY_USER, userResponse);
+      setUser(userResponse);
     }
     setLoading(false);
   };
