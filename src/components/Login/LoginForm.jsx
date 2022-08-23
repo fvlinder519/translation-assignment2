@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import LoginIcon from "@mui/icons-material/Login";
 import TextField from "@mui/material/TextField";
-import { IconButton } from "@mui/material";
+import { Box, IconButton } from "@mui/material";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../../api/userApi";
@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 import { storageSave } from "../../utils/storage";
 import { useUser } from "../../context/UserContext";
 import { STORAGE_KEY_USER } from "../../const/storageKeys";
+import { TextFields } from "@mui/icons-material";
 const usernameConfig = {
   required: true,
   minLength: 2,
@@ -20,6 +21,7 @@ const LoginForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const { user, setUser } = useUser();
   const navigate = useNavigate();
   //Local state
@@ -67,22 +69,24 @@ const LoginForm = () => {
 
   return (
     <>
-      <h2>Whats your name?</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <fieldset>
-          <label htmlFor="username">Username:</label>
-          <input
+        <Box sx={{ padding: 2 }}>
+          <TextField
+            id="usernameInput"
+            label="Username"
             type="text"
             placeholder="username"
             {...register("username", usernameConfig)}
+            required
           />
-          {errorMessage}
-        </fieldset>
-
-        <Button variant="contained" type="submit" disabled={loading}>
-          Continue
-          <LoginIcon sx={{ paddingLeft: 2 }} />
-        </Button>
+        </Box>
+        <Box sx={{ color: "red" }}> {errorMessage}</Box>
+        <Box sx={{ padding: 2 }}>
+          <Button variant="contained" type="submit" disabled={loading}>
+            Continue
+            <LoginIcon sx={{ paddingLeft: 2 }} />
+          </Button>
+        </Box>
         {loading && <p>Loading in...</p>}
         {apiError && <p>{apiError}</p>}
       </form>
