@@ -14,8 +14,6 @@ import SendIcon from "@mui/icons-material/Send";
 import InputAdornment from "@mui/material/InputAdornment";
 import KeyboardIcon from "@mui/icons-material/Keyboard";
 
-import Paper from "@mui/material/Paper";
-import InputBase from "@mui/material/InputBase";
 import Divider from "@mui/material/Divider";
 import { styled } from "@mui/material/styles";
 import { alpha } from "@mui/material";
@@ -25,7 +23,7 @@ import { alpha } from "@mui/material";
 
 const commonStyles = {
   bgcolor: "background.paper",
-  borderColor: "#dbbbf5",
+  borderColor: "text.primary",
   m: 1,
   border: 1,
   width: "45rem",
@@ -90,61 +88,35 @@ const TranslationForm = ({ onTranslate }) => {
   };
 
   return (
-    <div onSubmit={handleSubmit(onSubmit)}>
-      <Box
-        sx={{
-          p: "2px 4px",
-          display: "flex",
-          justifyContent: "center",
-          width: 400,
-          justify: "center",
-          position: "absolute",
-          left: "38%",
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <TextField
+        id="outlined-basic"
+        label="Translation text"
+        variant="outlined"
+        {...register("translateText")}
+        sx={{ borderRadius: 4 }}
+        InputProps={{
+          startAdornment: (
+            <KeyboardIcon sx={{ marginRight: 3 }}>
+              {" "}
+              <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
+            </KeyboardIcon>
+          ),
+
+          endAdornment: (
+            <IconButton variant="contained" type="submit" position="start">
+              <SendIcon />
+            </IconButton>
+          ),
         }}
-      >
-        <Paper
-          component="form"
-          sx={{
-            p: "2px 4px",
-            display: "flex",
-            justifyContent: "center",
-            width: 400,
-            justify: "center",
-            position: "absolute",
-          }}
-        >
-          <IconButton sx={{ p: "10px" }} aria-label="menu">
-            <KeyboardIcon sx={{ marginRight: 3 }} />
-          </IconButton>
-          <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-          <InputBase
-            sx={{ ml: 1, flex: 1 }}
-            placeholder="Translate text"
-            inputProps={{ "aria-label": "Translate text" }}
-            id="outlined-basic"
-            label="Translation text"
-            variant="outlined"
-            {...register("translateText")}
-          />
+      ></TextField>
 
-          <IconButton variant="contained" type="submit" position="start">
-            <SendIcon />
-          </IconButton>
-        </Paper>
-
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            position: "absolute",
-          }}
-        >
-          <Box sx={{ ...commonStyles, borderRadius: 1, marginTop: 15 }}>
-            <Box sx={{ width: 1 }}>{translationText}</Box>
-          </Box>
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <Box sx={{ ...commonStyles, borderRadius: 1 }}>
+          <Box sx={{ width: 1 }}>{translationText}</Box>
         </Box>
       </Box>
-    </div>
+    </form>
   );
 };
 export default TranslationForm;
