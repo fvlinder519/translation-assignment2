@@ -11,6 +11,11 @@ import { useUser } from "../../context/UserContext";
 import { STORAGE_KEY_USER } from "../../const/storageKeys";
 import { TextFields } from "@mui/icons-material";
 import SendIcon from "@mui/icons-material/Send";
+import { NavLink } from "react-router-dom";
+
+import "../../styles/styles.css";
+import { styled } from "@mui/material/styles";
+import LogoPng2 from "../../images/catLogInPic.png";
 const usernameConfig = {
   required: true,
   minLength: 2,
@@ -71,27 +76,35 @@ const LoginForm = () => {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Box sx={{ padding: 2 }}>
-          <TextField
-            id="usernameInput"
-            label="Username"
-            type="text"
-            placeholder="username"
-            {...register("username", usernameConfig)}
-            required
-            InputProps={{
-              endAdornment: (
-                <IconButton
-                  variant="contained"
-                  type="submit"
-                  disabled={loading}
-                >
-                  <SendIcon></SendIcon>
-                </IconButton>
-              ),
-            }}
-          ></TextField>
+        <Box sx={{ padding: 3, background: "#dbbbf5" }}>
+          <img src={LogoPng2} height={"80%"} width={"80%"} />
         </Box>
+
+        <TextField
+          id="usernameInput"
+          label="Username"
+          type="text"
+          required
+          position="sticky"
+          variant="outlined"
+          placeholder="username"
+          className="inputRounded"
+          {...register("username", usernameConfig)}
+          sx={{
+            mt: -3,
+
+            width: 300,
+            borderColor: "green",
+          }}
+          InputProps={{
+            endAdornment: (
+              <IconButton variant="contained" type="submit" disabled={loading}>
+                <SendIcon></SendIcon>
+              </IconButton>
+            ),
+          }}
+        />
+
         <Box sx={{ color: "red" }}> {errorMessage}</Box>
 
         {loading && <p>Loading in...</p>}

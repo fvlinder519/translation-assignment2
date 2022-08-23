@@ -4,7 +4,6 @@ import Box from "@mui/material/Box";
 
 const commonStyles = {
   bgcolor: "background.paper",
-  borderColor: "text.primary",
   m: 1,
   border: 1,
   width: "45rem",
@@ -24,7 +23,15 @@ const ProfileTranslationHistory = ({ translations }) => {
   return (
     <div>
       <Box sx={{ display: "flex", justifyContent: "center" }}>
-        <Box sx={{ ...commonStyles, borderRadius: 1, paddingBottom: 60 }}>
+        <Box
+          sx={{
+            ...commonStyles,
+            borderRadius: 1,
+            paddingBottom: 60,
+            borderColor: "grey.500",
+            boxShadow: 3,
+          }}
+        >
           {translationList}
         </Box>
       </Box>

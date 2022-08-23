@@ -22,7 +22,6 @@ function App() {
       <CssBaseline />
       <BrowserRouter>
         <div className="App">
-          <Navbar />
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/translation" element={<Translation />} />

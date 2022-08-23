@@ -13,7 +13,7 @@ import { STORAGE_KEY_USER } from "../../const/storageKeys";
 import SendIcon from "@mui/icons-material/Send";
 import InputAdornment from "@mui/material/InputAdornment";
 import KeyboardIcon from "@mui/icons-material/Keyboard";
-
+import "../../styles/styles.css";
 import Divider from "@mui/material/Divider";
 import { styled } from "@mui/material/styles";
 import { alpha } from "@mui/material";
@@ -23,8 +23,6 @@ import { alpha } from "@mui/material";
 
 const commonStyles = {
   bgcolor: "background.paper",
-  borderColor: "text.primary",
-  m: 1,
   border: 1,
   width: "45rem",
   height: "15rem",
@@ -94,6 +92,7 @@ const TranslationForm = ({ onTranslate }) => {
         label="Translation text"
         variant="outlined"
         {...register("translateText")}
+        className="inputRounded"
         sx={{ borderRadius: 4, marginBottom: 4, marginTop: 4 }}
         InputProps={{
           startAdornment: (
@@ -111,8 +110,21 @@ const TranslationForm = ({ onTranslate }) => {
         }}
       ></TextField>
 
-      <Box sx={{ display: "flex", justifyContent: "center" }}>
-        <Box sx={{ ...commonStyles, borderRadius: 1 }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <Box
+          sx={{
+            ...commonStyles,
+            borderRadius: 1,
+            position: "sticky",
+            borderColor: "grey.300",
+            boxShadow: 3,
+          }}
+        >
           <Box sx={{ width: 1 }}>{translationText}</Box>
         </Box>
       </Box>

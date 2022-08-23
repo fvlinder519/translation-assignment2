@@ -13,7 +13,7 @@ import { STORAGE_KEY_USER } from "../../const/storageKeys";
 import Logo from "../../images/watermelon-_1_.svg";
 import LogoPng from "../../images/watermelon.png";
 import LogoPng2 from "../../images/catPencil.png";
-import LogoPng3 from "../../images/catFly.png";
+import LogoPng3 from "../../images/catPencilText.png";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -24,7 +24,8 @@ import ProfileActions from "../../components/Profile/ProfileActions";
 import { storageRemove } from "../../utils/storage";
 import { Link } from "@mui/material";
 import { useTheme } from "@emotion/react";
-const Navbar = () => {
+
+const NavbarLogin = () => {
   const { user, setUser } = useUser();
   const [value, setValue] = React.useState(0);
   const handleLogoutClick = () => {
@@ -55,59 +56,18 @@ const Navbar = () => {
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="sticky" color="neutral">
           <Toolbar>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-            >
-              <NavLink to="/translation">
-                <IconButton>
-                  <img src={LogoPng2} height={120} width={380} />
-                </IconButton>
-              </NavLink>
+            <IconButton>
+              <img
+                src={LogoPng3}
+                height={"40%"}
+                width={"40%"}
+                sx={{ paddingLeft: "10%" }}
+              />
             </IconButton>
-            <Typography sx={{ flexGrow: 1 }}>
-              {user !== null && (
-                <>
-                  <IconButton
-                    edge="end"
-                    sx={{ alignContent: borderRight, marginLeft: 40 }}
-                  >
-                    <NavLink to="/profile">
-                      <Avatar
-                        sx={{
-                          flexGrow: 1,
-                          bgcolor: randomColor(),
-                          width: 56,
-                          height: 56,
-                        }}
-                      >
-                        {user.username}
-                      </Avatar>
-                    </NavLink>
-                  </IconButton>
-                  <Button
-                    variant="contained"
-                    onClick={handleLogoutClick}
-                    sx={{
-                      alignContent: borderRight,
-                      marginLeft: 4,
-                      borderRadius: "20px",
-                    }}
-                    edge="end"
-                  >
-                    <Link to="/"> </Link>
-                    Log Out
-                  </Button>
-                </>
-              )}
-            </Typography>
           </Toolbar>
         </AppBar>
       </Box>
     </ThemeProvider>
   );
 };
-export default Navbar;
+export default NavbarLogin;

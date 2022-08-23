@@ -2,6 +2,7 @@ import { Input, Link } from "@mui/material";
 import Button from "@mui/material/Button";
 import Navbar from "../Navbar/Navbar";
 
+import DeleteIcon from "@mui/icons-material/Delete";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import ProfileTranslationHistory from "./ProfileTranslationHistory";
@@ -44,8 +45,13 @@ const ProfileActions = ({ logout }) => {
     <Box>
       <ProfileTranslationHistory translations={user.translations} />
       <div>
-        <Button variant="contained" onClick={handleClearHistoryClick}>
-          Clear History
+        <Button
+          variant="outlined"
+          onClick={handleClearHistoryClick}
+          sx={{ marginTop: "3%", borderRadius: "20px" }}
+          startIcon={<DeleteIcon />}
+        >
+          Delete Translations
         </Button>
       </div>
     </Box>

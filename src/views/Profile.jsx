@@ -7,7 +7,7 @@ import { STORAGE_KEY_USER } from "../const/storageKeys";
 import { useUser } from "../context/UserContext";
 import withAuth from "../hoc/withAuth";
 import { storageRemove, storageSave } from "../utils/storage";
-
+import Navbar from "../components/Navbar/Navbar";
 const Profile = () => {
   //Parent of ProfileHeader and passing down information to child
   const { user, setUser } = useUser();
@@ -29,6 +29,8 @@ const Profile = () => {
 
   return (
     <>
+      {" "}
+      <Navbar />
       <h1>Profile</h1>
       <ProfileActions logout={logout} />
       {user.translation !== undefined && (
