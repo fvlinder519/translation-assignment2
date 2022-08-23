@@ -1,14 +1,22 @@
+const validateKey = (key) => {
+  if (!key || typeof key !== "string") {
+    throw new Error("Invalid storage key provided");
+  }
+};
+
 export const storageSave = (key, value) => {
-  if (!key) {
-    throw new Error("storageSave: No storage key provided");
+  if (!key || typeof key !== "string") {
+    throw new Error("storageSave: Invalid storage key provided");
   }
   if (!value) {
-    throw new Error("storageSave: No storage value provided for " + key);
+    validateKey(key);
   }
   sessionStorage.setItem(key, JSON.stringify(value));
 };
 
 export const storageRead = (key) => {
+  validateKey(key);
+
   const data = sessionStorage.getItem(key);
   if (data) {
     return JSON.parse(data);
@@ -17,5 +25,6 @@ export const storageRead = (key) => {
 };
 
 export const storageRemove = (key) => {
+  validateKey(key);
   sessionStorage.removeItem(key);
 };

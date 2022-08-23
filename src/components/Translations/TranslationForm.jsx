@@ -1,4 +1,4 @@
-import { Input, Link } from "@mui/material";
+import { IconButton, Input, Link } from "@mui/material";
 import Button from "@mui/material/Button";
 import Navbar from "../Navbar/Navbar";
 
@@ -10,6 +10,13 @@ import { useState } from "react";
 import { addTranslation } from "../../api/translateApi";
 import { storageSave } from "../../utils/storage";
 import { STORAGE_KEY_USER } from "../../const/storageKeys";
+import SendIcon from "@mui/icons-material/Send";
+import InputAdornment from "@mui/material/InputAdornment";
+import KeyboardIcon from "@mui/icons-material/Keyboard";
+
+<Button variant="contained" sx={{ marginLeft: 4, marginTop: 1 }} type="submit">
+  Translate
+</Button>;
 const commonStyles = {
   bgcolor: "background.paper",
   borderColor: "text.primary",
@@ -57,15 +64,15 @@ const TranslationForm = ({ onTranslate }) => {
         label="Translation text"
         variant="outlined"
         {...register("translateText")}
+        InputProps={{
+          startAdornment: <KeyboardIcon sx={{ marginRight: 3 }} />,
+          endAdornment: (
+            <IconButton variant="contained" type="submit" position="start">
+              <SendIcon />
+            </IconButton>
+          ),
+        }}
       ></TextField>
-
-      <Button
-        variant="contained"
-        sx={{ marginLeft: 4, marginTop: 1 }}
-        type="submit"
-      >
-        Translate
-      </Button>
 
       <Box sx={{ display: "flex", justifyContent: "center" }}>
         <Box sx={{ ...commonStyles, borderRadius: 1 }}> {translationText}</Box>

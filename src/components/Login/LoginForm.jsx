@@ -10,6 +10,7 @@ import { storageSave } from "../../utils/storage";
 import { useUser } from "../../context/UserContext";
 import { STORAGE_KEY_USER } from "../../const/storageKeys";
 import { TextFields } from "@mui/icons-material";
+import SendIcon from "@mui/icons-material/Send";
 const usernameConfig = {
   required: true,
   minLength: 2,
@@ -78,15 +79,21 @@ const LoginForm = () => {
             placeholder="username"
             {...register("username", usernameConfig)}
             required
-          />
+            InputProps={{
+              endAdornment: (
+                <IconButton
+                  variant="contained"
+                  type="submit"
+                  disabled={loading}
+                >
+                  <SendIcon></SendIcon>
+                </IconButton>
+              ),
+            }}
+          ></TextField>
         </Box>
         <Box sx={{ color: "red" }}> {errorMessage}</Box>
-        <Box sx={{ padding: 2 }}>
-          <Button variant="contained" type="submit" disabled={loading}>
-            Continue
-            <LoginIcon sx={{ marginLeft: 2 }} />
-          </Button>
-        </Box>
+
         {loading && <p>Loading in...</p>}
         {apiError && <p>{apiError}</p>}
       </form>
