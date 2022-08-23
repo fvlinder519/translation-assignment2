@@ -1,3 +1,19 @@
+# About the project
+
+This project is a small sign language translator using emojies to translate a text. This is a Single Page Application using
+the React framework. This app has three main "pages":
+a) The Startup Page
+b) The Translation Page
+c) The Profile Page
+
+Translations (only the text) are being stored using an API from heroku. The Sign language characters appears in the “translated”
+box. The profile page displays the last 10 translations for the current user. There is also a button to clear the translations.
+
+The following features/tools are present in the application:
+• React framework
+• React Router to navigate between pages
+• API to store the users and their translations
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -5,6 +21,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 In the project directory, you can run:
+
 ### `npm start`
 
 Runs the app in the development mode.\

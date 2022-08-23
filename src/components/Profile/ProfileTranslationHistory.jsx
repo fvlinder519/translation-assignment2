@@ -9,7 +9,7 @@ const commonStyles = {
   width: "45rem",
   height: "15rem",
 };
-
+//Looping thorugh all trnaslations from ProfileTranslationHistoryItem
 const ProfileTranslationHistory = ({ translations }) => {
   const items = translations.slice(-10);
 

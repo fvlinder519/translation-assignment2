@@ -40,7 +40,7 @@ const Navbar = () => {
       },
     },
   });
-
+  //adding random color to userAvatar
   function randomColor() {
     let letters = "0123456789ABCDEF";
     let color = "#";

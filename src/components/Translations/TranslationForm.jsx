@@ -43,12 +43,12 @@ const TranslationForm = ({ onTranslate }) => {
     } else {
       onTranslate(translateText);
     }
-
+    //posting//sending translationtext to API
     const [error, updatedUser] = await addTranslation(user, translateText);
     if (error !== null) {
       return;
     }
-
+    //saving data in storage
     storageSave(STORAGE_KEY_USER, updatedUser);
     setUser(updatedUser);
     console.log(error);
@@ -58,6 +58,7 @@ const TranslationForm = ({ onTranslate }) => {
 
     let translationArray = translateText.split("");
 
+    //setting translation text to emojies by looping through the decostructed array and reputting emojies
     setTranslaionText(
       translationArray.map((letter, idx) => {
         if (!letter.match(/^[a-zA-Z\s]*$/)) {

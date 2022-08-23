@@ -28,6 +28,7 @@ const ProfileActions = ({ logout }) => {
     logout();
   };
 
+  //Deleting the translations and posting back to API
   const handleClearHistoryClick = async () => {
     const [clearError] = await translationHistoryDelete(user.id);
     if (clearError !== null) {
@@ -37,6 +38,7 @@ const ProfileActions = ({ logout }) => {
       ...user,
       translations: [],
     };
+    //Updating and saving storage
     storageSave(STORAGE_KEY_USER, updatedUSer);
     setUser(updatedUSer);
   };
