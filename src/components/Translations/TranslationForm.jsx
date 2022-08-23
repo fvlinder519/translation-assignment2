@@ -74,12 +74,6 @@ const TranslationForm = ({ onTranslate }) => {
     );
   };
 
-  const onChange = (evt) => {
-    let val = evt.target.value;
-    setFormInputValue(val);
-    setImagePaths([...val.toLowerCase()]);
-  };
-
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <TextField
@@ -87,7 +81,6 @@ const TranslationForm = ({ onTranslate }) => {
         label="Translation text"
         variant="outlined"
         {...register("translateText")}
-        onChange={onChange}
         InputProps={{
           startAdornment: <KeyboardIcon sx={{ marginRight: 3 }} />,
           endAdornment: (
