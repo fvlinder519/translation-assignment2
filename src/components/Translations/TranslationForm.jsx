@@ -94,7 +94,7 @@ const TranslationForm = ({ onTranslate }) => {
         label="Translation text"
         variant="outlined"
         {...register("translateText")}
-        sx={{ borderRadius: 4 }}
+        sx={{ borderRadius: 4, marginBottom: 4, marginTop: 4 }}
         InputProps={{
           startAdornment: (
             <KeyboardIcon sx={{ marginRight: 3 }}>

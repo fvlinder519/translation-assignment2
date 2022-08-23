@@ -52,50 +52,54 @@ const Navbar = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box
-        sx={{
-          flexGrow: 1,
-        }}
-      >
+      <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static" color="neutral">
-          <Toolbar
-            value={value}
-            onChange={(event, newValue) => {
-              setValue(newValue);
-            }}
-          >
-            <NavLink to="/translation">
-              <IconButton>
-                <img src={LogoPng3} height={120} width={380} />
-              </IconButton>
-            </NavLink>
-
-            {user !== null && (
-              <>
-                <IconButton sx={{ alignContent: borderRight, marginLeft: 40 }}>
-                  <NavLink to="/profile">
-                    <Avatar
-                      sx={{
-                        flexGrow: 1,
-                        bgcolor: randomColor(),
-                        width: 56,
-                        height: 56,
-                      }}
-                    >
-                      {user.username}
-                    </Avatar>
-                  </NavLink>
+          <Toolbar>
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              sx={{ mr: 2 }}
+            >
+              <NavLink to="/translation">
+                <IconButton>
+                  <img src={LogoPng3} height={120} width={380} />
                 </IconButton>
-                <Button
-                  variant="contained"
-                  onClick={handleLogoutClick}
-                  sx={{ alignContent: borderRight, marginLeft: 4 }}
-                >
-                  <Link to="/"> </Link>
-                  Log Out
-                </Button>
-              </>
-            )}
+              </NavLink>
+            </IconButton>
+            <Typography sx={{ flexGrow: 1 }}>
+              {user !== null && (
+                <>
+                  <IconButton
+                    edge="end"
+                    sx={{ alignContent: borderRight, marginLeft: 40 }}
+                  >
+                    <NavLink to="/profile">
+                      <Avatar
+                        sx={{
+                          flexGrow: 1,
+                          bgcolor: randomColor(),
+                          width: 56,
+                          height: 56,
+                        }}
+                      >
+                        {user.username}
+                      </Avatar>
+                    </NavLink>
+                  </IconButton>
+                  <Button
+                    variant="contained"
+                    onClick={handleLogoutClick}
+                    sx={{ alignContent: borderRight, marginLeft: 4 }}
+                    edge="end"
+                  >
+                    <Link to="/"> </Link>
+                    Log Out
+                  </Button>
+                </>
+              )}
+            </Typography>
           </Toolbar>
         </AppBar>
       </Box>
