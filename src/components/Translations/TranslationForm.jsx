@@ -60,26 +60,32 @@ const TranslationForm = ({ onTranslate }) => {
 
     setTranslaionText(
       translationArray.map((letter, idx) => {
-        if (letter === " ") {
-          return (
-            <img
-              src={require(`../../assets/individial_signs/empty.png`)}
-              alt={letter}
-              width="45px"
-              height="45px"
-              key={idx}
-            ></img>
+        if (!letter.match(/^[a-zA-Z\s]*$/)) {
+          alert(
+            "Invalid character! Only English alphabet letters and spaces are allowed!"
           );
         } else {
-          return (
-            <img
-              src={require(`../../assets/individial_signs/${letter}.png`)}
-              alt={letter}
-              width="45px"
-              height="45px"
-              key={idx}
-            ></img>
-          );
+          if (letter === " ") {
+            return (
+              <img
+                src={require(`../../assets/individial_signs/empty.png`)}
+                alt={letter}
+                width="45px"
+                height="45px"
+                key={idx}
+              ></img>
+            );
+          } else {
+            return (
+              <img
+                src={require(`../../assets/individial_signs/${letter}.png`)}
+                alt={letter}
+                width="45px"
+                height="45px"
+                key={idx}
+              ></img>
+            );
+          }
         }
       })
     );
@@ -125,7 +131,7 @@ const TranslationForm = ({ onTranslate }) => {
             boxShadow: 3,
           }}
         >
-          <Box sx={{ width: 1 }}>{translationText}</Box>
+          <Box sx={{ width: 1, marginTop: 3 }}>{translationText}</Box>
         </Box>
       </Box>
     </form>

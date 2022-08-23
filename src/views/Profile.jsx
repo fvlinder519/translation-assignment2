@@ -30,8 +30,8 @@ const Profile = () => {
   return (
     <>
       <Navbar />
-      <h1>Profile</h1>
-      <ProfileActions logout={logout} />
+      <h1 style={{ color: "#f4a261" }}>Profile</h1>
+      <ProfileActions />
       {user.translation !== undefined && (
         <ProfileTranslationHistory translations={user.translations} />
       )}
