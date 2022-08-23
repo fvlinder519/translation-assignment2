@@ -129,11 +129,11 @@ const LoginForm = () => {
               ),
             }}
           />
-        </Box>
-        <Box sx={{ color: "red" }}> {errorMessage}</Box>
+          {loading && <p>Loading in...</p>}
+          {apiError && <p>{apiError}</p>}
 
-        {loading && <p>Loading in...</p>}
-        {apiError && <p>{apiError}</p>}
+          <Box sx={{ color: "red" }}> {errorMessage}</Box>
+        </Box>
       </form>
     </>
   );
