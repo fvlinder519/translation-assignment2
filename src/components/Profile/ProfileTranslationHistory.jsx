@@ -24,7 +24,9 @@ const ProfileTranslationHistory = ({ translations }) => {
   return (
     <div>
       <Box sx={{ display: "flex", justifyContent: "center" }}>
-        <Box sx={{ ...commonStyles, borderRadius: 1 }}>{translationList}</Box>
+        <Box sx={{ ...commonStyles, borderRadius: 1, paddingBottom: 60 }}>
+          {translationList}
+        </Box>
       </Box>
     </div>
   );
