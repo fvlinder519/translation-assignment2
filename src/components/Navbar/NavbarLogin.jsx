@@ -36,7 +36,7 @@ const NavbarLogin = () => {
   const theme = createTheme({
     palette: {
       neutral: {
-        main: "#f4a261",
+        main: "white",
         contrastText: "#fff",
       },
     },
@@ -46,13 +46,8 @@ const NavbarLogin = () => {
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="sticky" color="neutral">
           <Toolbar>
-            <IconButton>
-              <img
-                src={LogoPng3}
-                height={"40%"}
-                width={"40%"}
-                sx={{ paddingLeft: "10%" }}
-              />
+            <IconButton sx={{ paddingTop: 2, paddingBottom: 2.5 }}>
+              <img src={LogoPng3} height={"40%"} width={"40%"} />
             </IconButton>
           </Toolbar>
         </AppBar>
