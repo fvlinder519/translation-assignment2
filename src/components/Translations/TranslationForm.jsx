@@ -13,10 +13,10 @@ import { STORAGE_KEY_USER } from "../../const/storageKeys";
 import SendIcon from "@mui/icons-material/Send";
 import InputAdornment from "@mui/material/InputAdornment";
 import KeyboardIcon from "@mui/icons-material/Keyboard";
-
 <Button variant="contained" sx={{ marginLeft: 4, marginTop: 1 }} type="submit">
   Translate
 </Button>;
+
 const commonStyles = {
   bgcolor: "background.paper",
   borderColor: "text.primary",
@@ -26,6 +26,8 @@ const commonStyles = {
   height: "15rem",
 };
 
+//array for translation characters. Maps 1:1 to image paths (e.g. for input b we want b.png)
+
 const TranslationForm = ({ onTranslate }) => {
   const {
     register,
@@ -34,9 +36,11 @@ const TranslationForm = ({ onTranslate }) => {
   } = useForm();
 
   const [translationText, setTranslaionText] = useState("");
+  const [formInputValue, setFormInputValue] = useState("");
 
+  const [imagePaths, setImagePaths] = useState([]);
   const { user, setUser } = useUser();
-
+  let [letterArray, setLetterArray] = useState([]);
   const onSubmit = async ({ translateText }) => {
     console.log(translateText);
 
@@ -50,11 +54,30 @@ const TranslationForm = ({ onTranslate }) => {
     if (error !== null) {
       return;
     }
+
     storageSave(STORAGE_KEY_USER, updatedUser);
     setUser(updatedUser);
     console.log(error);
     console.log(updatedUser);
-    setTranslaionText(translateText);
+
+    setFormInputValue("");
+    setImagePaths([]);
+    //setTranslaionText(translateText);
+    let translationArray = translateText.split("");
+    setTranslaionText(
+      translationArray.map((letter) => (
+        <img
+          src={require(`../../assets/individial_signs/${letter}.png`)}
+          alt={letter}
+        />
+      ))
+    );
+  };
+
+  const onChange = (evt) => {
+    let val = evt.target.value;
+    setFormInputValue(val);
+    setImagePaths([...val.toLowerCase()]);
   };
 
   return (
@@ -64,6 +87,7 @@ const TranslationForm = ({ onTranslate }) => {
         label="Translation text"
         variant="outlined"
         {...register("translateText")}
+        onChange={onChange}
         InputProps={{
           startAdornment: <KeyboardIcon sx={{ marginRight: 3 }} />,
           endAdornment: (
@@ -75,7 +99,9 @@ const TranslationForm = ({ onTranslate }) => {
       ></TextField>
 
       <Box sx={{ display: "flex", justifyContent: "center" }}>
-        <Box sx={{ ...commonStyles, borderRadius: 1 }}> {translationText}</Box>
+        <Box sx={{ ...commonStyles, borderRadius: 1 }}>
+          <Box sx={{ width: 1 }}>{translationText}</Box>
+        </Box>
         {/* //change to emoji afterwards */}
       </Box>
     </form>

@@ -74,14 +74,23 @@ const Navbar = () => {
               <>
                 <IconButton sx={{ alignContent: borderRight, marginLeft: 40 }}>
                   <NavLink to="/profile">
-                    <Typography sx={{ margin: 1 }}>{user.username}</Typography>
-
                     <Avatar
-                      sx={{ bgcolor: randomColor(), flexGrow: 1 }}
-                    ></Avatar>
+                      sx={{
+                        flexGrow: 1,
+                        bgcolor: randomColor(),
+                        width: 56,
+                        height: 56,
+                      }}
+                    >
+                      {user.username}
+                    </Avatar>
                   </NavLink>
                 </IconButton>
-                <Button variant="contained" onClick={handleLogoutClick}>
+                <Button
+                  variant="contained"
+                  onClick={handleLogoutClick}
+                  sx={{ alignContent: borderRight, marginLeft: 4 }}
+                >
                   <Link to="/"> </Link>
                   Log Out
                 </Button>
