@@ -36,7 +36,7 @@ const NavbarLogin = () => {
   const theme = createTheme({
     palette: {
       neutral: {
-        main: "#dbbbf5",
+        main: "#f4a261",
         contrastText: "#fff",
       },
     },

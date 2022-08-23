@@ -80,8 +80,10 @@ const Navbar = () => {
                         sx={{
                           flexGrow: 1,
                           bgcolor: randomColor(),
-                          width: 56,
-                          height: 56,
+                          width: 65,
+                          height: 65,
+                          border: 4,
+                          boxShadow: 2,
                         }}
                       >
                         {user.username}

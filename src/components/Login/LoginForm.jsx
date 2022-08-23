@@ -85,15 +85,16 @@ const LoginForm = () => {
         <Box
           sx={{
             width: "60%",
-            height: "20%",
+            height: 170,
             bgcolor: "background.paper",
             borderBottom: 10,
             borderColor: "#f4a261",
             backgroundColor: "white",
+            position: "fixed",
             mt: "-4%",
             ml: "25%",
-            position: "fixed",
             borderRadius: 4,
+            boxShadow: 3,
           }}
         >
           <TextField
@@ -105,8 +106,10 @@ const LoginForm = () => {
             className="inputRounded"
             {...register("username", usernameConfig)}
             sx={{
-              mt: "9%",
-              width: 500,
+              position: "fixed",
+              mt: "4%",
+              width: "40%",
+              ml: "-20%",
             }}
             InputProps={{
               startAdornment: (

@@ -103,7 +103,6 @@ const TranslationForm = ({ onTranslate }) => {
         InputProps={{
           startAdornment: (
             <KeyboardIcon sx={{ marginRight: 3 }}>
-              {" "}
               <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
             </KeyboardIcon>
           ),
@@ -125,10 +124,15 @@ const TranslationForm = ({ onTranslate }) => {
         <Box
           sx={{
             ...commonStyles,
-            borderRadius: 1,
-            position: "sticky",
-            borderColor: "grey.300",
-            boxShadow: 3,
+            width: "60%",
+            height: 170,
+            bgcolor: "background.paper",
+            borderBottom: 10,
+            borderColor: "#f4a261",
+            backgroundColor: "white",
+            position: "fixed",
+            borderRadius: 4,
+            boxShadow: 2,
           }}
         >
           <Box sx={{ width: 1, marginTop: 3 }}>{translationText}</Box>

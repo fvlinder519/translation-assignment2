@@ -26,10 +26,17 @@ const ProfileTranslationHistory = ({ translations }) => {
         <Box
           sx={{
             ...commonStyles,
-            borderRadius: 1,
+            marginTop: "3%",
+            font: 2,
+            border: 2,
+            borderBottom: 10,
+            borderColor: "#f4a261",
+            backgroundColor: "white",
+            position: "fixed",
+            borderRadius: 4,
+            boxShadow: 2,
             paddingBottom: 60,
-            borderColor: "grey.500",
-            boxShadow: 3,
+            marginBottom: 15,
           }}
         >
           {translationList}

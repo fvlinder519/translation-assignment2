@@ -49,10 +49,9 @@ const ProfileActions = ({ logout }) => {
           variant="outlined"
           onClick={handleClearHistoryClick}
           sx={{
-            marginTop: "3%",
+            marginTop: -2,
             borderRadius: "20px",
-            borderColor: "#f4a261",
-            color: "#f4a261",
+            color: "#adb5bd",
             font: 2,
             border: 2,
           }}
