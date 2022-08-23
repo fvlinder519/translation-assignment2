@@ -9,7 +9,7 @@ import withAuth from "../hoc/withAuth";
 import { storageRemove, storageSave } from "../utils/storage";
 
 const Profile = () => {
-  //Praent of ProfileHeader and passing down information to child
+  //Parent of ProfileHeader and passing down information to child
   const { user, setUser } = useUser();
 
   useEffect(() => {
@@ -20,7 +20,6 @@ const Profile = () => {
         setUser(latestUser);
       }
     };
-    // findUser();
   }, [setUser, user.id]);
 
   const logout = () => {
@@ -32,7 +31,6 @@ const Profile = () => {
     <>
       <h1>Profile</h1>
       <ProfileActions logout={logout} />
-
       {user.translation !== undefined && (
         <ProfileTranslationHistory translations={user.translations} />
       )}

@@ -9,7 +9,7 @@ import ProfileTranslationHistory from "./ProfileTranslationHistory";
 import { useUser } from "../../context/UserContext";
 import { translationHistoryDelete } from "../../api/translateApi";
 import { storageSave } from "../../utils/storage";
-
+import { STORAGE_KEY_USER } from "../../const/storageKeys";
 const commonStyles = {
   bgcolor: "background.paper",
   borderColor: "text.primary",
@@ -36,7 +36,7 @@ const ProfileActions = ({ logout }) => {
       ...user,
       translations: [],
     };
-    storageSave(updatedUSer);
+    storageSave(STORAGE_KEY_USER, updatedUSer);
     setUser(updatedUSer);
   };
 
