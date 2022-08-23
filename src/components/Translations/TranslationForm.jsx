@@ -29,18 +29,12 @@ const commonStyles = {
 //array for translation characters. Maps 1:1 to image paths (e.g. for input b we want b.png)
 
 const TranslationForm = ({ onTranslate }) => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const [translationText, setTranslaionText] = useState("");
   const [formInputValue, setFormInputValue] = useState("");
 
-  const [imagePaths, setImagePaths] = useState([]);
   const { user, setUser } = useUser();
-  let [letterArray, setLetterArray] = useState([]);
   const onSubmit = async ({ translateText }) => {
     console.log(translateText);
 
@@ -61,16 +55,31 @@ const TranslationForm = ({ onTranslate }) => {
     console.log(updatedUser);
 
     setFormInputValue("");
-    setImagePaths([]);
-    //setTranslaionText(translateText);
+
     let translationArray = translateText.split("");
+
     setTranslaionText(
-      translationArray.map((letter) => (
-        <img
-          src={require(`../../assets/individial_signs/${letter}.png`)}
-          alt={letter}
-        />
-      ))
+      translationArray.map((letter) => {
+        if (letter === " ") {
+          return (
+            <img
+              src={require(`../../assets/individial_signs/empty.png`)}
+              alt={letter}
+              width="45px"
+              height="45px"
+            ></img>
+          );
+        } else {
+          return (
+            <img
+              src={require(`../../assets/individial_signs/${letter}.png`)}
+              alt={letter}
+              width="45px"
+              height="45px"
+            ></img>
+          );
+        }
+      })
     );
   };
 
@@ -95,7 +104,6 @@ const TranslationForm = ({ onTranslate }) => {
         <Box sx={{ ...commonStyles, borderRadius: 1 }}>
           <Box sx={{ width: 1 }}>{translationText}</Box>
         </Box>
-        {/* //change to emoji afterwards */}
       </Box>
     </form>
   );
