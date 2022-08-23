@@ -93,7 +93,7 @@ const TranslationForm = ({ onTranslate }) => {
         variant="outlined"
         {...register("translateText")}
         InputProps={{
-          startAdornment: <KeyboardIcon sx={{ marginRight: 3 }} />,
+          startAdornment: <KeyboardIcon sx={{ marginRight: 3 }}></KeyboardIcon>,
           endAdornment: (
             <IconButton variant="contained" type="submit" position="start">
               <SendIcon />
