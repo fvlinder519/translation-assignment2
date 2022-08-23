@@ -55,7 +55,7 @@ const Navbar = () => {
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="sticky" color="neutral">
           <Toolbar>
-            <IconButton
+            <div
               size="large"
               edge="start"
               color="inherit"
@@ -67,7 +67,7 @@ const Navbar = () => {
                   <img src={LogoPng2} height={120} width={380} />
                 </IconButton>
               </NavLink>
-            </IconButton>
+            </div>
             <Typography sx={{ flexGrow: 1 }}>
               {user !== null && (
                 <>
