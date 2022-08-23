@@ -59,7 +59,7 @@ const TranslationForm = ({ onTranslate }) => {
     let translationArray = translateText.split("");
 
     setTranslaionText(
-      translationArray.map((letter) => {
+      translationArray.map((letter, idx) => {
         if (letter === " ") {
           return (
             <img
@@ -67,6 +67,7 @@ const TranslationForm = ({ onTranslate }) => {
               alt={letter}
               width="45px"
               height="45px"
+              key={idx}
             ></img>
           );
         } else {
@@ -76,6 +77,7 @@ const TranslationForm = ({ onTranslate }) => {
               alt={letter}
               width="45px"
               height="45px"
+              key={idx}
             ></img>
           );
         }
