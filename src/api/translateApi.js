@@ -1,6 +1,7 @@
 import { createHeaders } from "./indexApi";
 const apiUrl = process.env.REACT_APP_API_URL;
 
+//updating the body of the empty translations with content
 export const addTranslation = async (user, translation) => {
   try {
     const response = await fetch(`${apiUrl}/${user.id}`, {
@@ -22,46 +23,22 @@ export const addTranslation = async (user, translation) => {
   }
 };
 
-export const createTranslation = async (user, translation) => {
+//updating translation body to = []
+export const translationHistoryDelete = async (userId) => {
   try {
-    const response = await fetch(apiUrl, {
-      method: "POST",
+    const response = await fetch(`${apiUrl}/${userId}`, {
+      method: "PATCH",
       headers: createHeaders(),
       body: JSON.stringify({
-        username: user.username,
-        translations: [...user.translations, translation],
+        translations: [],
       }),
     });
-
     if (!response.ok) {
-      throw new Error("Could not post translation " + user.username);
+      throw new Error("Could not update/delete translationa");
     }
-    const data = await response.JSON();
-    return [null, data];
+    const result = response.json();
+    return [null, result];
   } catch (error) {
-    return [error.message, []];
-  }
-};
-
-export const getTranslation = async () => {
-  try {
-    const response = await fetch(apiUrl);
-    return await response.json();
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-export const translationHistoryDelete = async (id) => {
-  try {
-    const response = await fetch(apiUrl + "/" + id, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    return response.json;
-  } catch (error) {
-    console.log(error);
+    return [error.message, null];
   }
 };

@@ -7,6 +7,8 @@ import Box from "@mui/material/Box";
 import ProfileTranslationHistory from "./ProfileTranslationHistory";
 
 import { useUser } from "../../context/UserContext";
+import { translationHistoryDelete } from "../../api/translateApi";
+import { storageSave } from "../../utils/storage";
 
 const commonStyles = {
   bgcolor: "background.paper",
@@ -18,22 +20,35 @@ const commonStyles = {
 };
 
 const ProfileActions = ({ logout }) => {
-  const { user } = useUser();
+  const { user, setUser } = useUser();
+
   const handleLogoutClick = () => {
     //Send event to parent (child should not handle events)
     logout();
   };
 
+  const handleClearHistoryClick = async () => {
+    const [clearError] = await translationHistoryDelete(user.id);
+    if (clearError !== null) {
+      return;
+    }
+    const updatedUSer = {
+      ...user,
+      translations: [],
+    };
+    storageSave(updatedUSer);
+    setUser(updatedUSer);
+  };
+
   return (
-    <ul>
-      <div>
-        <Link to="/translations">Translations</Link>
-      </div>
+    <Box>
       <ProfileTranslationHistory translations={user.translations} />
       <div>
-        <Button variant="contained">Clear History</Button>
+        <Button variant="contained" onClick={handleClearHistoryClick}>
+          Clear History
+        </Button>
       </div>
-    </ul>
+    </Box>
   );
 };
 export default ProfileActions;
