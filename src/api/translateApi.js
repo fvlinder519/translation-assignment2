@@ -22,6 +22,27 @@ export const addTranslation = async (user, translation) => {
   }
 };
 
+export const createTranslation = async (user, translation) => {
+  try {
+    const response = await fetch(apiUrl, {
+      method: "POST",
+      headers: createHeaders(),
+      body: JSON.stringify({
+        username: user.username,
+        translations: [...user.translations, translation],
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error("Could not post translation " + user.username);
+    }
+    const data = await response.JSON();
+    return [null, data];
+  } catch (error) {
+    return [error.message, []];
+  }
+};
+
 export const getTranslation = async () => {
   try {
     const response = await fetch(apiUrl);
@@ -31,17 +52,6 @@ export const getTranslation = async () => {
   }
 };
 
-export const getTranslationWithId = async (id, limit = 0) => {
-  try {
-    const url =
-      apiUrl + "?poster_id=" + id + (limit > 0 ? "&_limit=" + limit : "");
-    const response = await fetch(url);
-    const posts = await response.json();
-    return posts;
-  } catch (error) {
-    console.log(error);
-  }
-};
 export const translationHistoryDelete = async (id) => {
   try {
     const response = await fetch(apiUrl + "/" + id, {

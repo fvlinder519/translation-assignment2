@@ -23,6 +23,7 @@ import Paper from "@mui/material/Paper";
 import ProfileActions from "../../components/Profile/ProfileActions";
 import { storageRemove } from "../../utils/storage";
 import { Link } from "@mui/material";
+import { useTheme } from "@emotion/react";
 const Navbar = () => {
   const { user, setUser } = useUser();
   const [value, setValue] = React.useState(0);
@@ -73,11 +74,8 @@ const Navbar = () => {
               <>
                 <IconButton sx={{ alignContent: borderRight, marginLeft: 40 }}>
                   <NavLink to="/profile">
-                    {user !== null && (
-                      <Typography sx={{ margin: 1 }}>
-                        {user.username}
-                      </Typography>
-                    )}
+                    <Typography sx={{ margin: 1 }}>{user.username}</Typography>
+
                     <Avatar
                       sx={{ bgcolor: randomColor(), flexGrow: 1 }}
                     ></Avatar>

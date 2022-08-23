@@ -8,6 +8,8 @@ import { useForm } from "react-hook-form";
 import { useUser } from "../../context/UserContext";
 import { useState } from "react";
 import { addTranslation } from "../../api/translateApi";
+import { storageSave } from "../../utils/storage";
+import { STORAGE_KEY_USER } from "../../const/storageKeys";
 const commonStyles = {
   bgcolor: "background.paper",
   borderColor: "text.primary",
@@ -26,7 +28,7 @@ const TranslationForm = ({ onTranslate }) => {
 
   const [translationText, setTranslaionText] = useState("");
 
-  const { user } = useUser();
+  const { user, setUser } = useUser();
 
   const onSubmit = async ({ translateText }) => {
     console.log(translateText);
@@ -37,9 +39,14 @@ const TranslationForm = ({ onTranslate }) => {
       onTranslate(translateText);
     }
 
-    const [error, result] = await addTranslation(user, translateText);
+    const [error, updatedUser] = await addTranslation(user, translateText);
+    if (error !== null) {
+      return;
+    }
+    storageSave(STORAGE_KEY_USER, updatedUser);
+    setUser(updatedUser);
     console.log(error);
-    console.log(result);
+    console.log(updatedUser);
     setTranslaionText(translateText);
   };
 
