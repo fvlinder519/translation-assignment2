@@ -84,7 +84,7 @@ const LoginForm = () => {
         <Box sx={{ padding: 2 }}>
           <Button variant="contained" type="submit" disabled={loading}>
             Continue
-            <LoginIcon sx={{ paddingLeft: 2 }} />
+            <LoginIcon sx={{ marginLeft: 2 }} />
           </Button>
         </Box>
         {loading && <p>Loading in...</p>}
