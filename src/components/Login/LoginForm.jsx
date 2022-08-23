@@ -12,10 +12,12 @@ import { STORAGE_KEY_USER } from "../../const/storageKeys";
 import { TextFields } from "@mui/icons-material";
 import SendIcon from "@mui/icons-material/Send";
 import { NavLink } from "react-router-dom";
-
+import KeyboardIcon from "@mui/icons-material/Keyboard";
 import "../../styles/styles.css";
 import { styled } from "@mui/material/styles";
 import LogoPng2 from "../../images/catLogInPic.png";
+import Paper from "@mui/material";
+import Divider from "@mui/material/Divider";
 const usernameConfig = {
   required: true,
   minLength: 2,
@@ -80,31 +82,51 @@ const LoginForm = () => {
           <img src={LogoPng2} height={"80%"} width={"80%"} />
         </Box>
 
-        <TextField
-          id="usernameInput"
-          label="Username"
-          type="text"
-          required
-          position="sticky"
-          variant="outlined"
-          placeholder="username"
-          className="inputRounded"
-          {...register("username", usernameConfig)}
+        <Box
           sx={{
-            mt: -3,
-
-            width: 300,
-            borderColor: "green",
+            width: "60%",
+            height: "20%",
+            bgcolor: "background.paper",
+            borderBottom: 10,
+            borderColor: "#f4a261",
+            backgroundColor: "white",
+            mt: "-4%",
+            ml: "25%",
+            position: "fixed",
+            borderRadius: 4,
           }}
-          InputProps={{
-            endAdornment: (
-              <IconButton variant="contained" type="submit" disabled={loading}>
-                <SendIcon></SendIcon>
-              </IconButton>
-            ),
-          }}
-        />
+        >
+          <TextField
+            id="usernameInput"
+            type="text"
+            required
+            variant="outlined"
+            placeholder="Enter Username"
+            className="inputRounded"
+            {...register("username", usernameConfig)}
+            sx={{
+              mt: "9%",
+              width: 500,
+            }}
+            InputProps={{
+              startAdornment: (
+                <KeyboardIcon sx={{ marginRight: 3 }}>
+                  <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
+                </KeyboardIcon>
+              ),
 
+              endAdornment: (
+                <IconButton
+                  variant="contained"
+                  type="submit"
+                  disabled={loading}
+                >
+                  <SendIcon sx={{ color: "#f4a261" }} />
+                </IconButton>
+              ),
+            }}
+          />
+        </Box>
         <Box sx={{ color: "red" }}> {errorMessage}</Box>
 
         {loading && <p>Loading in...</p>}

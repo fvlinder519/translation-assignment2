@@ -10,7 +10,6 @@ const Translation = () => {
   };
   return (
     <>
-      {" "}
       <Navbar />
       <h1>Translation</h1>
       <TranslationForm onTranslate={handleTranslateClicked} />

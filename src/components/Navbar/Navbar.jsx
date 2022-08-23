@@ -89,16 +89,20 @@ const Navbar = () => {
                     </NavLink>
                   </IconButton>
                   <Button
-                    variant="contained"
+                    variant="outlined"
                     onClick={handleLogoutClick}
                     sx={{
                       alignContent: borderRight,
                       marginLeft: 4,
                       borderRadius: "20px",
+                      borderColor: "white",
+                      color: "white",
+                      font: 2,
+                      border: 2,
                     }}
                     edge="end"
                   >
-                    <Link to="/"> </Link>
+                    <Link to="/"></Link>
                     Log Out
                   </Button>
                 </>

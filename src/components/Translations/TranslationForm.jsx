@@ -104,7 +104,7 @@ const TranslationForm = ({ onTranslate }) => {
 
           endAdornment: (
             <IconButton variant="contained" type="submit" position="start">
-              <SendIcon />
+              <SendIcon sx={{ color: "#f4a261" }} />
             </IconButton>
           ),
         }}

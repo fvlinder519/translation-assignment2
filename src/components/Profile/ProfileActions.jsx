@@ -48,7 +48,14 @@ const ProfileActions = ({ logout }) => {
         <Button
           variant="outlined"
           onClick={handleClearHistoryClick}
-          sx={{ marginTop: "3%", borderRadius: "20px" }}
+          sx={{
+            marginTop: "3%",
+            borderRadius: "20px",
+            borderColor: "#f4a261",
+            color: "#f4a261",
+            font: 2,
+            border: 2,
+          }}
           startIcon={<DeleteIcon />}
         >
           Delete Translations
