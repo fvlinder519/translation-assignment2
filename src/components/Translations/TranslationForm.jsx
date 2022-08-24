@@ -33,8 +33,6 @@ const TranslationForm = ({ onTranslate }) => {
 
   const { user, setUser } = useUser();
   const onSubmit = async ({ translateText }) => {
-    console.log(translateText);
-
     if (!translateText) {
       alert("Write a text first");
     } else {
@@ -42,26 +40,28 @@ const TranslationForm = ({ onTranslate }) => {
     }
     //posting//sending translationtext to API
     const [error, updatedUser] = await addTranslation(user, translateText);
+
     if (error !== null) {
       return;
     }
-    //saving data in storage
-    storageSave(STORAGE_KEY_USER, updatedUser);
-    setUser(updatedUser);
-    console.log(error);
-    console.log(updatedUser);
+
+    //everythin gto lowercase
     translateText = translateText.toLowerCase();
     let translationArray = translateText.split("");
 
-    //setting translation text to emojies by looping through the decostructed array and reputting emojies
-    setTranslaionText(
-      translationArray.map((letter, idx) => {
-        if (!letter.match(/^[a-zA-Z\s]*$/)) {
-          alert(
-            "Invalid character! Only English alphabet letters and spaces are allowed!"
-          );
-          return null;
-        } else {
+    if (!translateText.match(/^[a-zA-Z\s]*$/)) {
+      setTranslaionText("");
+      alert("Not allowed with spesial characters");
+    } else {
+      //saving data in storage after succsessfull inputs
+      storageSave(STORAGE_KEY_USER, updatedUser);
+      setUser(updatedUser);
+      console.log(error);
+      console.log(updatedUser);
+
+      //setting translation text to emojies by looping through the decostructed array and reputting emojies
+      setTranslaionText(
+        translationArray.map((letter, idx) => {
           if (letter === " ") {
             return (
               <img
@@ -83,9 +83,9 @@ const TranslationForm = ({ onTranslate }) => {
               ></img>
             );
           }
-        }
-      })
-    );
+        })
+      );
+    }
   };
 
   return (
