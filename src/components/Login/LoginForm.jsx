@@ -107,7 +107,7 @@ const LoginForm = () => {
             {...register("username", usernameConfig)}
             sx={{
               position: "fixed",
-              mt: "4%",
+              mt: "3%",
               width: "40%",
               ml: "-20%",
             }}
