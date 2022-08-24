@@ -46,9 +46,19 @@ const NavbarLogin = () => {
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="sticky" color="neutral">
           <Toolbar>
-            <IconButton sx={{ paddingTop: 2, paddingBottom: 2.5 }}>
-              <img src={LogoPng3} height={"40%"} width={"40%"} />
-            </IconButton>
+            <Typography
+              sx={{
+                position: "flex",
+                marginBottom: "1%",
+                marginTop: "1%",
+                fontFamily: "Love Ya Like A Sister",
+                fontSize: "200%",
+                color: "white",
+                color: "#f4a261",
+              }}
+            >
+              Lost in Translation
+            </Typography>
           </Toolbar>
         </AppBar>
       </Box>

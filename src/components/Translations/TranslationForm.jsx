@@ -113,7 +113,7 @@ const TranslationForm = ({ onTranslate }) => {
           "&:hover": {
             backgroundColor: "transparent",
             borderRadius: 8.5,
-            borderColor: "#f4a261",
+            borderColor: "#0096c7",
           },
         }}
         InputProps={{
@@ -126,7 +126,7 @@ const TranslationForm = ({ onTranslate }) => {
           endAdornment: (
             <IconButton variant="contained" type="submit" position="start">
               <ArrowCircleRightIcon
-                sx={{ color: "#f4a261", fontSize: "50px" }}
+                sx={{ color: "#0096c7", fontSize: "50px" }}
               />
             </IconButton>
           ),
@@ -146,7 +146,7 @@ const TranslationForm = ({ onTranslate }) => {
             height: "30%",
             bgcolor: "background.paper",
             borderBottom: 10,
-            borderColor: "#f4a261",
+            borderColor: "#0096c7",
             backgroundColor: "white",
             position: "fixed",
             borderRadius: 4,

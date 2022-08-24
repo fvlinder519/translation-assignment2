@@ -35,7 +35,7 @@ const Navbar = () => {
   const theme = createTheme({
     palette: {
       neutral: {
-        main: "#dbbbf5",
+        main: "#caf0f8",
         contrastText: "#fff",
       },
     },
