@@ -1,6 +1,5 @@
-import { IconButton, Input, Link } from "@mui/material";
+import { IconButton } from "@mui/material";
 import Button from "@mui/material/Button";
-import Navbar from "../Navbar/Navbar";
 
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
@@ -10,13 +9,9 @@ import { useState } from "react";
 import { addTranslation } from "../../api/translateApi";
 import { storageSave } from "../../utils/storage";
 import { STORAGE_KEY_USER } from "../../const/storageKeys";
-import SendIcon from "@mui/icons-material/Send";
-import InputAdornment from "@mui/material/InputAdornment";
 import KeyboardIcon from "@mui/icons-material/Keyboard";
 import "../../styles/styles.css";
 import Divider from "@mui/material/Divider";
-import { styled } from "@mui/material/styles";
-import { alpha } from "@mui/material";
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 
 <Button variant="contained" sx={{ marginLeft: 4, marginTop: 1 }} type="submit">
@@ -34,7 +29,7 @@ const TranslationForm = ({ onTranslate }) => {
   const { register, handleSubmit } = useForm();
 
   const [translationText, setTranslaionText] = useState("");
-  const [formInputValue, setFormInputValue] = useState("");
+  const [setFormInputValue] = useState("");
 
   const { user, setUser } = useUser();
   const onSubmit = async ({ translateText }) => {
@@ -55,8 +50,6 @@ const TranslationForm = ({ onTranslate }) => {
     setUser(updatedUser);
     console.log(error);
     console.log(updatedUser);
-
-    setFormInputValue("");
     translateText = translateText.toLowerCase();
     let translationArray = translateText.split("");
 
@@ -67,6 +60,7 @@ const TranslationForm = ({ onTranslate }) => {
           alert(
             "Invalid character! Only English alphabet letters and spaces are allowed!"
           );
+          return null;
         } else {
           if (letter === " ") {
             return (
@@ -107,8 +101,8 @@ const TranslationForm = ({ onTranslate }) => {
           marginBottom: 4,
           marginTop: 4,
           font: 5,
-          fontStyle: "Love Ya Like A Sister",
           width: "30%",
+          fontFamily: "Sanchez",
 
           "&:hover": {
             backgroundColor: "transparent",
@@ -126,7 +120,11 @@ const TranslationForm = ({ onTranslate }) => {
           endAdornment: (
             <IconButton variant="contained" type="submit" position="start">
               <ArrowCircleRightIcon
-                sx={{ color: "#0096c7", fontSize: "50px" }}
+                sx={{
+                  color: "#f4a261",
+                  fontSize: "50px",
+                  fontFamily: "Sanchez",
+                }}
               />
             </IconButton>
           ),
@@ -146,7 +144,7 @@ const TranslationForm = ({ onTranslate }) => {
             height: "30%",
             bgcolor: "background.paper",
             borderBottom: 10,
-            borderColor: "#0096c7",
+            borderColor: "#53a2be",
             backgroundColor: "white",
             position: "fixed",
             borderRadius: 4,

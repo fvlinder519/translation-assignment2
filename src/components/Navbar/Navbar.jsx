@@ -3,30 +3,20 @@ import { useUser } from "../../context/UserContext";
 import * as React from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import BottomNavigation from "@mui/material/BottomNavigation";
-import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import IconButton from "@mui/material/IconButton";
 import Button from "@mui/material/Button";
 import Avatar from "@mui/material/Avatar";
-import Stack from "@mui/material/Stack";
 import { STORAGE_KEY_USER } from "../../const/storageKeys";
-import Logo from "../../images/watermelon-_1_.svg";
-import LogoPng from "../../images/watermelon.png";
-import LogoPng2 from "../../images/catPencil.png";
-import LogoPng3 from "../../images/catFly.png";
+import LogoPng3 from "../../images/geography.png";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { borderRight, color, style } from "@mui/system";
+import { borderRight } from "@mui/system";
 import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
-import ProfileActions from "../../components/Profile/ProfileActions";
 import { storageRemove } from "../../utils/storage";
 import { Link } from "@mui/material";
-import { useTheme } from "@emotion/react";
 const Navbar = () => {
   const { user, setUser } = useUser();
-  const [value, setValue] = React.useState(0);
   const handleLogoutClick = () => {
     storageRemove(STORAGE_KEY_USER);
     setUser(null);
@@ -35,7 +25,7 @@ const Navbar = () => {
   const theme = createTheme({
     palette: {
       neutral: {
-        main: "#caf0f8",
+        main: "#acedff",
         contrastText: "#fff",
       },
     },
@@ -59,7 +49,40 @@ const Navbar = () => {
             >
               <NavLink to="/translation">
                 <IconButton>
-                  <img src={LogoPng2} height={120} width={380} />
+                  <Grid container spacing={2} columns={14}>
+                    <Grid item xs={7}>
+                      <Box
+                        component="img"
+                        src={LogoPng3}
+                        sx={{
+                          position: "flex",
+                          marginRight: "-50%",
+                          height: "100%",
+                          width: "50%",
+                        }}
+                      />
+                    </Grid>
+
+                    <Grid item xs={4}>
+                      <Grid container rowSpacing={1}>
+                        <Grid item xs={10}>
+                          <Typography
+                            variant="h5"
+                            sx={{
+                              position: "absolute",
+                              marginBottom: "3%",
+                              marginTop: "10%",
+                              fontFamily: "Love Ya Like A Sister",
+                              color: "white",
+                              paddingBottom: "1%",
+                            }}
+                          >
+                            Lost in Translation <br></br>
+                          </Typography>
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                  </Grid>
                 </IconButton>
               </NavLink>
             </div>
@@ -80,7 +103,6 @@ const Navbar = () => {
                           boxShadow: 2,
                           marginRight: "-3rem",
                           display: "flex",
-
                           alignContent: "center",
                           justifyContent: "center",
                           fontFamily: "Sanchez",
@@ -104,8 +126,7 @@ const Navbar = () => {
                           marginLeft: "-6rem",
                           fontSize: "90%",
                           color: "white",
-                          // // fontFamily: "Love Ya Like A Sister",
-                          // fontFamily: "Sanchez",
+                          fontFamily: "Sanchez",
                         }}
                       >
                         {user.username}
@@ -124,9 +145,8 @@ const Navbar = () => {
                       font: 2,
                       border: 2,
                       marginTop: "1rem",
-                      // marginRight: "-10%",
-                      // fontFamily: "Sanchez",
                       fontWeight: "bold",
+                      bgcolor: "#0096c7",
                     }}
                     edge="end"
                   >

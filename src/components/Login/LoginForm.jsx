@@ -1,23 +1,15 @@
 import { useForm } from "react-hook-form";
-import LoginIcon from "@mui/icons-material/Login";
 import TextField from "@mui/material/TextField";
 import { Box, IconButton, Typography } from "@mui/material";
-import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../../api/userApi";
 import { useState, useEffect } from "react";
 import { storageSave } from "../../utils/storage";
 import { useUser } from "../../context/UserContext";
 import { STORAGE_KEY_USER } from "../../const/storageKeys";
-import { Image, TextFields } from "@mui/icons-material";
-import SendIcon from "@mui/icons-material/Send";
-import { NavLink } from "react-router-dom";
 import KeyboardIcon from "@mui/icons-material/Keyboard";
 import "../../styles/styles.css";
-import { styled } from "@mui/material/styles";
-import LogoPng2 from "../../images/catLogInPic.png";
 import LogoPng3 from "../../images/open-book.png";
-import Paper from "@mui/material";
 import Divider from "@mui/material/Divider";
 import {
   createTheme,
@@ -107,7 +99,7 @@ const LoginForm = () => {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Box sx={{ padding: 3, background: "#caf0f8" }}>
+        <Box sx={{ padding: 3, background: "#acedff" }}>
           <Grid container spacing={2} columns={14}>
             <Grid item xs={7}>
               <Box
@@ -115,7 +107,6 @@ const LoginForm = () => {
                 src={LogoPng3}
                 sx={{
                   position: "flex",
-                  marginBottom: "3%",
                   marginRight: "-50%",
                   height: "100%",
                   width: "55%",
@@ -130,13 +121,12 @@ const LoginForm = () => {
                     <Typography
                       variant="h3"
                       sx={{
-                        position: "flex",
+                        position: "absolute",
                         marginBottom: "3%",
-                        marginTop: "50%",
+                        marginTop: "10%",
                         fontFamily: "Love Ya Like A Sister",
                         color: "white",
                         paddingBottom: "1%",
-                        ml: "-14%",
                       }}
                     >
                       Lost in Translation <br></br>
@@ -148,8 +138,9 @@ const LoginForm = () => {
                     <Typography
                       variant="h4"
                       sx={{
-                        position: "flex",
+                        position: "absolute",
                         marginBottom: "3%",
+                        marginTop: "14%",
                         fontFamily: "Love Ya Like A Sister",
                         color: "white",
                       }}
@@ -166,7 +157,7 @@ const LoginForm = () => {
         <Box
           sx={{
             width: "60%",
-            height: 190,
+            height: 200,
             bgcolor: "background.paper",
             borderBottom: 15,
             borderColor: "#f4a261",
@@ -174,7 +165,6 @@ const LoginForm = () => {
             position: "flex",
             alignContent: "center",
             justifyContent: "center",
-
             align: "center",
             mt: "-4%",
             ml: "20%",
@@ -187,7 +177,7 @@ const LoginForm = () => {
             type="text"
             required
             variant="outlined"
-            placeholder="Enter Username"
+            placeholder="Username"
             className="inputRounded"
             {...register("username", usernameConfig)}
             sx={{
@@ -196,8 +186,8 @@ const LoginForm = () => {
               alignContent: "center",
               justifyContent: "center",
               align: "center",
-              position: "absolute",
-              ml: "-19%",
+              position: "flex",
+              fontFamily: "Love Ya Like A Sister",
             }}
             InputProps={{
               startAdornment: (

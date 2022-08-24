@@ -1,9 +1,6 @@
-import { Input, Link } from "@mui/material";
 import Button from "@mui/material/Button";
-import Navbar from "../Navbar/Navbar";
 
 import DeleteIcon from "@mui/icons-material/Delete";
-import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import ProfileTranslationHistory from "./ProfileTranslationHistory";
 
@@ -11,14 +8,6 @@ import { useUser } from "../../context/UserContext";
 import { translationHistoryDelete } from "../../api/translateApi";
 import { storageSave } from "../../utils/storage";
 import { STORAGE_KEY_USER } from "../../const/storageKeys";
-const commonStyles = {
-  bgcolor: "background.paper",
-  borderColor: "text.primary",
-  m: 1,
-  border: 1,
-  width: "45rem",
-  height: "15rem",
-};
 
 const ProfileActions = ({ logout }) => {
   const { user, setUser } = useUser();
@@ -53,9 +42,10 @@ const ProfileActions = ({ logout }) => {
           sx={{
             marginTop: -2,
             borderRadius: "20px",
-            color: "#adb5bd",
+            color: "#0096c7",
             font: 2,
             border: 2,
+            fontFamily: "Sanchez",
           }}
           startIcon={<DeleteIcon />}
         >

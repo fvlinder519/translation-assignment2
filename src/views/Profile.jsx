@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { findUserById } from "../api/userApi";
 import ProfileActions from "../components/Profile/ProfileActions";
-import ProfileHeader from "../components/Profile/ProfileHeader";
 import ProfileTranslationHistory from "../components/Profile/ProfileTranslationHistory";
 import { STORAGE_KEY_USER } from "../const/storageKeys";
 import { useUser } from "../context/UserContext";

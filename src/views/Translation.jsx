@@ -1,10 +1,8 @@
-import { addTranslation } from "../api/translateApi";
 import TranslationForm from "../components/Translations/TranslationForm";
 import { useUser } from "../context/UserContext";
 import withAuth from "../hoc/withAuth";
 import Navbar from "../components/Navbar/Navbar";
 const Translation = () => {
-  const { user } = useUser();
   const handleTranslateClicked = (translateText) => {
     console.log(translateText);
   };
@@ -13,7 +11,7 @@ const Translation = () => {
       <Navbar />
       <h1
         style={{
-          color: "#f4a261",
+          color: "#0096c7",
           fontFamily: "Love Ya Like A Sister",
           fontWeight: "bold",
           fontSize: 60,
