@@ -68,21 +68,48 @@ const Navbar = () => {
                 <>
                   <IconButton
                     edge="end"
-                    sx={{ alignContent: borderRight, marginLeft: 40 }}
+                    sx={{ alignContent: borderRight, marginLeft: "20%" }}
                   >
                     <NavLink to="/profile">
                       <Avatar
                         sx={{
-                          flexGrow: 1,
                           bgcolor: "#f4a261",
                           width: 65,
                           height: 65,
                           border: 4,
                           boxShadow: 2,
+                          marginRight: "-3rem",
+                          display: "flex",
+
+                          alignContent: "center",
+                          justifyContent: "center",
+                          fontFamily: "Sanchez",
+                          fontSize: "110%",
                         }}
                       >
                         {getFirstChar()}
                       </Avatar>
+                      <Box
+                        sx={{
+                          borderRadius: 6,
+                          bgcolor: "#f4a261",
+                          display: "flex",
+                          alignContent: "center",
+                          justifyContent: "center",
+                          paddingTop: 0.5,
+                          paddingBottom: 0.5,
+                          paddingLeft: 2,
+                          paddingRight: 3,
+                          marginTop: "-3rem",
+                          marginLeft: "-6rem",
+                          fontSize: "90%",
+                          color: "white",
+                          // fontFamily: "Love Ya Like A Sister",
+                          fontFamily: "Sanchez",
+                        }}
+                      >
+                        {user.username}
+                      </Box>
                     </NavLink>
                   </IconButton>
                   <Button
@@ -90,12 +117,16 @@ const Navbar = () => {
                     onClick={handleLogoutClick}
                     sx={{
                       alignContent: borderRight,
-                      marginLeft: 4,
+                      marginLeft: "10%",
                       borderRadius: "20px",
                       borderColor: "white",
                       color: "white",
                       font: 2,
                       border: 2,
+                      marginTop: "1rem",
+                      marginRight: "-10%",
+                      fontFamily: "Sanchez",
+                      fontWeight: "bold",
                     }}
                     edge="end"
                   >

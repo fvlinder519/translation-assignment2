@@ -11,7 +11,16 @@ const Translation = () => {
   return (
     <>
       <Navbar />
-      <h1 style={{ color: "#f4a261" }}>Translation</h1>
+      <h1
+        style={{
+          color: "#f4a261",
+          fontFamily: "Love Ya Like A Sister",
+          fontWeight: "bold",
+          fontSize: 60,
+        }}
+      >
+        Translation
+      </h1>
       <TranslationForm onTranslate={handleTranslateClicked} />
     </>
   );
