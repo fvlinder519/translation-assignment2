@@ -30,7 +30,16 @@ const Profile = () => {
   return (
     <>
       <Navbar />
-      <h1 style={{ color: "#f4a261" }}>Profile</h1>
+      <h1
+        style={{
+          color: "#f4a261",
+          fontFamily: "Love Ya Like A Sister",
+          fontWeight: "bold",
+          fontSize: 60,
+        }}
+      >
+        Profile
+      </h1>
       <ProfileActions />
       {user.translation !== undefined && (
         <ProfileTranslationHistory translations={user.translations} />

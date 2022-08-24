@@ -104,8 +104,8 @@ const Navbar = () => {
                           marginLeft: "-6rem",
                           fontSize: "90%",
                           color: "white",
-                          // fontFamily: "Love Ya Like A Sister",
-                          fontFamily: "Sanchez",
+                          // // fontFamily: "Love Ya Like A Sister",
+                          // fontFamily: "Sanchez",
                         }}
                       >
                         {user.username}
@@ -124,8 +124,8 @@ const Navbar = () => {
                       font: 2,
                       border: 2,
                       marginTop: "1rem",
-                      marginRight: "-10%",
-                      fontFamily: "Sanchez",
+                      // marginRight: "-10%",
+                      // fontFamily: "Sanchez",
                       fontWeight: "bold",
                     }}
                     edge="end"

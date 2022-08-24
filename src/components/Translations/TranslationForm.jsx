@@ -17,6 +17,8 @@ import "../../styles/styles.css";
 import Divider from "@mui/material/Divider";
 import { styled } from "@mui/material/styles";
 import { alpha } from "@mui/material";
+import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
+
 <Button variant="contained" sx={{ marginLeft: 4, marginTop: 1 }} type="submit">
   Translate
 </Button>;
@@ -96,11 +98,24 @@ const TranslationForm = ({ onTranslate }) => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <TextField
         id="outlined-basic"
-        label="Translation text"
         variant="outlined"
         {...register("translateText")}
         className="inputRounded"
-        sx={{ borderRadius: 4, marginBottom: 4, marginTop: 4 }}
+        placeholder="Translation text"
+        sx={{
+          borderRadius: 4,
+          marginBottom: 4,
+          marginTop: 4,
+          font: 5,
+          fontStyle: "Love Ya Like A Sister",
+          width: "30%",
+
+          "&:hover": {
+            backgroundColor: "transparent",
+            borderRadius: 8.5,
+            borderColor: "#f4a261",
+          },
+        }}
         InputProps={{
           startAdornment: (
             <KeyboardIcon sx={{ marginRight: 3 }}>
@@ -110,7 +125,9 @@ const TranslationForm = ({ onTranslate }) => {
 
           endAdornment: (
             <IconButton variant="contained" type="submit" position="start">
-              <SendIcon sx={{ color: "#f4a261" }} />
+              <ArrowCircleRightIcon
+                sx={{ color: "#f4a261", fontSize: "50px" }}
+              />
             </IconButton>
           ),
         }}
@@ -126,7 +143,7 @@ const TranslationForm = ({ onTranslate }) => {
           sx={{
             ...commonStyles,
             width: "60%",
-            height: 170,
+            height: "30%",
             bgcolor: "background.paper",
             borderBottom: 10,
             borderColor: "#f4a261",
