@@ -55,7 +55,7 @@ const TranslationForm = ({ onTranslate }) => {
     console.log(updatedUser);
 
     setFormInputValue("");
-
+    translateText = translateText.toLowerCase();
     let translationArray = translateText.split("");
 
     //setting translation text to emojies by looping through the decostructed array and reputting emojies
