@@ -40,15 +40,10 @@ const Navbar = () => {
       },
     },
   });
-  //adding random color to userAvatar
-  function randomColor() {
-    let letters = "0123456789ABCDEF";
-    let color = "#";
-    for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-  }
+  const getFirstChar = () => {
+    let charArray = user.username.split("");
+    return charArray[0];
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -79,14 +74,14 @@ const Navbar = () => {
                       <Avatar
                         sx={{
                           flexGrow: 1,
-                          bgcolor: randomColor(),
+                          bgcolor: "#f4a261",
                           width: 65,
                           height: 65,
                           border: 4,
                           boxShadow: 2,
                         }}
                       >
-                        {user.username}
+                        {getFirstChar()}
                       </Avatar>
                     </NavLink>
                   </IconButton>
